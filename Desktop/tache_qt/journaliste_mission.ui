@@ -14,577 +14,24 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QMainWindow {
-	background-color:#f0f0f0;
-}
-QCheckBox {
-	padding:2px;
-}
-QCheckBox:hover {
-	border-radius:4px;
-	border-style:solid;
-	border-width:1px;
-	padding-left: 1px;
-	padding-right: 1px;
-	padding-bottom: 1px;
-	padding-top: 1px;
-	border-color: rgb(255,150,60);
-	background-color:qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(190, 90, 50, 50), stop:1 rgba(250, 130, 40, 50));
-}
-QCheckBox::indicator:checked {
-	border-radius:4px;
-	border-style:solid;
-	border-width:1px;
-	border-color: rgb(246, 134, 86);
-  	background-color:rgb(246, 134, 86)
-}
-QCheckBox::indicator:unchecked {
-	border-radius:4px;
-	border-style:solid;
-	border-width:1px;
-	border-color:rgb(246, 134, 86);
-  	background-color:rgb(255,255,255);
-}
-QColorDialog {
-	background-color:#f0f0f0;
-}
-QComboBox {
-	color:rgb(81,72,65);
-	background: #ffffff;
-}
-QComboBox:editable {
-	background: #ffffff;
-	color: rgb(81,72,65);
-	selection-color:rgb(81,72,65);
-	selection-background-color: #ffffff;
-}
-QComboBox QAbstractItemView {
-	color:rgb(81,72,65);	
-	background: #ffffff;
-	selection-color: #ffffff;
-	selection-background-color: rgb(246, 134, 86);
-}
-QComboBox:!editable:on, QComboBox::drop-down:editable:on {
-	color:  #1e1d23;	
-	background: #ffffff;
-}
-QDateTimeEdit {
-	color:rgb(81,72,65);
-	background-color: #ffffff;
-}
-QDateEdit {
-	color:rgb(81,72,65);
-	background-color: #ffffff;
-}
-QDialog {
-	background-color:#f0f0f0;
-}
-QDoubleSpinBox {
-	color:rgb(81,72,65);
-	background-color: #ffffff;
-}
-QFontComboBox {
-	color:rgb(81,72,65);
-	background-color: #ffffff;
-}
-QLabel {
-	color:rgb(17,17,17);
-}
-QLineEdit {
-	background-color:rgb(255,255,255);
-	selection-background-color:rgb(236,116,64);
-	color:rgb(17,17,17);
-}
-QMenuBar {
-	color:rgb(223,219,210);
-	background-color:rgb(65,64,59);
-}
-QMenuBar::item {
-	padding-top:4px;
-	padding-left:4px;
-	padding-right:4px;
-	color:rgb(223,219,210);
-	background-color:rgb(65,64,59);
-}
-QMenuBar::item:selected {
-	color:rgb(255,255,255);
-	padding-top:2px;
-	padding-left:2px;
-	padding-right:2px;
-	border-top-width:2px;
-	border-left-width:2px;
-	border-right-width:2px;
-	border-top-right-radius:4px;
-	border-top-left-radius:4px;
-	border-style:solid;
-	background-color:rgb(65,64,59);
-	border-top-color: rgb(47,47,44);
-	border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(90, 87, 78, 255), stop:1 rgba(47,47,44, 255));
-	border-left-color:  qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 rgba(90, 87, 78, 255), stop:1 rgba(47,47,44, 255));
-}
-QMenu {
-	color:rgb(223,219,210);
-	background-color:rgb(65,64,59);
-}
-QMenu::item {
-	color:rgb(223,219,210);
-	padding-left:20px;
-	padding-top:4px;
-	padding-bottom:4px;
-	padding-right:10px;
-}
-QMenu::item:selected {
-	color:rgb(255,255,255);
-	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(225, 108, 54, 255), stop:1 rgba(246, 134, 86, 255));
-	border-style:solid;
-	border-width:3px;
-	padding-left:17px;
-	padding-top:4px;
-	padding-bottom:4px;
-	padding-right:7px;
-	border-bottom-color:qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(175,85,48,255), stop:1 rgba(236,114,67, 255));
-	border-top-color:qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(253,156,113,255), stop:1 rgba(205,90,46, 255));
-	border-right-color:qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgba(253,156,113,255), stop:1 rgba(205,90,46, 255));
-	border-left-color:qlineargradient(spread:pad, x1:1, y1:0.5, x2:0, y2:0.5, stop:0 rgba(253,156,113,255), stop:1 rgba(205,90,46, 255));
-}
-QPlainTextEdit {
-	border-width: 1px;
-	border-style: solid;
-	border-color:transparent;
-	color:rgb(17,17,17);
-	selection-background-color:rgb(236,116,64);
-}
-QProgressBar {
-	text-align: center;
-	color: rgb(0, 0, 0);
-	border-width: 1px; 
-	border-radius: 10px;
-	border-style: inset;
-	border-color: rgb(150,150,150);
-	background-color:rgb(221,221,219);
-}
-QProgressBar::chunk:horizontal {
-	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(225, 108, 54, 255), stop:1 rgba(246, 134, 86, 255));
-	border-style: solid;
-	border-radius:8px;
-	border-width:1px;
-	border-bottom-color:qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(175,85,48,255), stop:1 rgba(236,114,67, 255));
-	border-top-color:qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(253,156,113,255), stop:1 rgba(205,90,46, 255));
-	border-right-color:qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgba(253,156,113,255), stop:1 rgba(205,90,46, 255));
-	border-left-color:qlineargradient(spread:pad, x1:1, y1:0.5, x2:0, y2:0.5, stop:0 rgba(253,156,113,255), stop:1 rgba(205,90,46, 255));
-}
-QPushButton{
-	color:rgb(17,17,17);
-	border-width: 1px;
-	border-radius: 6px;
-	border-bottom-color: rgb(150,150,150);
-	border-right-color: rgb(165,165,165);
-	border-left-color: rgb(165,165,165);
-	border-top-color: rgb(180,180,180);
-	border-style: solid;
-	padding: 4px;
-	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(220, 220, 220, 255), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:hover{
-	color:rgb(17,17,17);
-	border-width: 1px;
-	border-radius:6px;
-	border-top-color: rgb(255,150,60);
-	border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(200, 70, 20, 255), stop:1 rgba(255,150,60, 255));
-	border-left-color:  qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 rgba(200, 70, 20, 255), stop:1 rgba(255,150,60, 255));
-	border-bottom-color: rgb(200,70,20);
-	border-style: solid;
-	padding: 2px;
-	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(220, 220, 220, 255), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:default{
-	color:rgb(17,17,17);
-	border-width: 1px;
-	border-radius:6px;
-	border-top-color: rgb(255,150,60);
-	border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(200, 70, 20, 255), stop:1 rgba(255,150,60, 255));
-	border-left-color:  qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 rgba(200, 70, 20, 255), stop:1 rgba(255,150,60, 255));
-	border-bottom-color: rgb(200,70,20);
-	border-style: solid;
-	padding: 2px;
-	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(220, 220, 220, 255), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:pressed{
-	color:rgb(17,17,17);
-	border-width: 1px;
-	border-radius: 6px;
-	border-width: 1px;
-	border-top-color: rgba(255,150,60,200);
-	border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(200, 70, 20, 255), stop:1 rgba(255,150,60, 200));
-	border-left-color:  qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 rgba(200, 70, 20, 255), stop:1 rgba(255,150,60, 200));
-	border-bottom-color: rgba(200,70,20,200);
-	border-style: solid;
-	padding: 2px;
-	background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 rgba(220, 220, 220, 255), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:disabled{
-	color:rgb(174,167,159);
-	border-width: 1px;
-	border-radius: 6px;
-	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(200, 200, 200, 255), stop:1 rgba(230, 230, 230, 255));
-}
-QRadioButton {
-	padding: 1px;
-}
-QRadioButton::indicator:checked {
-	height: 10px;
-	width: 10px;
-	border-style:solid;
-	border-radius:5px;
-	border-width: 1px;
-	border-color: rgba(246, 134, 86, 255);
-	color: #a9b7c6;
-	background-color:rgba(246, 134, 86, 255);
-}
-QRadioButton::indicator:!checked {
-	height: 10px;
-	width: 10px;
-	border-style:solid;
-	border-radius:5px;
-	border-width: 1px;
-	border-color: rgb(246, 134, 86);
-	color: #a9b7c6;
-	background-color: transparent;
-}
-QScrollArea {
-	color: #FFFFFF;
-	background-color:#f0f0f0;
-}
-QSlider::groove {
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(207,207,207);
-}
-QSlider::groove:horizontal {
-	height: 5px;
-	background: rgb(246, 134, 86);
-}
-QSlider::groove:vertical {
-	width: 5px;
-	background: rgb(246, 134, 86);
-}
-QSlider::handle:horizontal {
-	background: rgb(253,253,253);
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(207,207,207);
-	width: 12px;
-	margin: -5px 0;
-	border-radius: 7px;
-}
-QSlider::handle:vertical {
-	background: rgb(253,253,253);
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(207,207,207);
-	height: 12px;
-	margin: 0 -5px;
-	border-radius: 7px;
-}
-QSlider::add-page:horizontal {
- 	background: white;
-}
-QSlider::add-page:vertical {
-	background: white;
-}
-QSlider::sub-page:horizontal {
-	background: rgb(246, 134, 86);
-}
-QSlider::sub-page:vertical {
-  	background: rgb(246, 134, 86);
-}
-QStatusBar {
-	color:rgb(81,72,65);
-}
-QSpinBox {
-	color:rgb(81,72,65);
-	background-color: #ffffff;
-}
-QScrollBar:horizontal {
-	max-height: 20px;
-	border: 1px transparent grey;
-	margin: 0px 20px 0px 20px;
-}
-QScrollBar::handle:horizontal {
-	background: rgb(253,253,253);
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(207,207,207);
-	border-radius: 7px;
-	min-width: 25px;
-}
-QScrollBar::handle:horizontal:hover {
-	background: rgb(253,253,253);
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(255,150,60);
-	border-radius: 7px;
-	min-width: 25px;
-}
-QScrollBar::add-line:horizontal {
-  	border: 1px solid;
-  	border-color: rgb(207,207,207);
-  	border-top-right-radius: 7px;
-  	border-top-left-radius: 7px;
-  	border-bottom-right-radius: 7px;
-  	background: rgb(255, 255, 255);
-  	width: 20px;
-  	subcontrol-position: right;
-  	subcontrol-origin: margin;
-}
-QScrollBar::add-line:horizontal:hover {
-  	border: 1px solid;
-  	border-top-right-radius: 7px;
-  	border-top-left-radius: 7px;
-  	border-bottom-right-radius: 7px;
-  	border-color: rgb(255,150,60);
-  	background: rgb(255, 255, 255);
-  	width: 20px;
-  	subcontrol-position: right;
-  	subcontrol-origin: margin;
-}
-QScrollBar::add-line:horizontal:pressed {
-  	border: 1px solid grey;
-  	border-top-left-radius: 7px;
-  	border-top-right-radius: 7px;
-  	border-bottom-right-radius: 7px;
-  	background: rgb(231,231,231);
-  	width: 20px;
-  	subcontrol-position: right;
-  	subcontrol-origin: margin;
-}
-QScrollBar::sub-line:horizontal {
-  	border: 1px solid;
-  	border-color: rgb(207,207,207);
-  	border-top-right-radius: 7px;
-  	border-top-left-radius: 7px;
-  	border-bottom-left-radius: 7px;
-  	background: rgb(255, 255, 255);
-  	width: 20px;
-  	subcontrol-position: left;
-  	subcontrol-origin: margin;
-}
-QScrollBar::sub-line:horizontal:hover {
-  	border: 1px solid;
-  	border-color: rgb(255,150,60);
-  	border-top-right-radius: 7px;
-  	border-top-left-radius: 7px;
-  	border-bottom-left-radius: 7px;
-  	background: rgb(255, 255, 255);
-  	width: 20px;
-  	subcontrol-position: left;
-  	subcontrol-origin: margin;
-}
-QScrollBar::sub-line:horizontal:pressed {
-  	border: 1px solid grey;
-  	border-top-right-radius: 7px;
-  	border-top-left-radius: 7px;
-  	border-bottom-left-radius: 7px;
-  	background: rgb(231,231,231);
-  	width: 20px;
-  	subcontrol-position: left;
-  	subcontrol-origin: margin;
-}
-QScrollBar::left-arrow:horizontal {
-  	border: 1px transparent grey;
-  	border-top-left-radius: 3px;
-  	border-bottom-left-radius: 3px;
-  	width: 6px;
-  	height: 6px;
-  	background: rgb(230,230,230);
-}
-QScrollBar::right-arrow:horizontal {
-	border: 1px transparent grey;
-	border-top-right-radius: 3px;
-	border-bottom-right-radius: 3px;
-  	width: 6px;
-  	height: 6px;
- 	background: rgb(230,230,230);
-}
-QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
- 	background: none;
-} 
-QScrollBar:vertical {
-	max-width: 20px;
-	border: 1px transparent grey;
-	margin: 20px 0px 20px 0px;
-}
-QScrollBar::add-line:vertical {
-	border: 1px solid;
-	border-color: rgb(207,207,207);
-	border-bottom-right-radius: 7px;
-	border-bottom-left-radius: 7px;
-	border-top-left-radius: 7px;
-	background: rgb(255, 255, 255);
-  	height: 20px;
-  	subcontrol-position: bottom;
-  	subcontrol-origin: margin;
-}
-QScrollBar::add-line:vertical:hover {
-  	border: 1px solid;
-  	border-color: rgb(255,150,60);
-  	border-bottom-right-radius: 7px;
-  	border-bottom-left-radius: 7px;
-  	border-top-left-radius: 7px;
-  	background: rgb(255, 255, 255);
-  	height: 20px;
-  	subcontrol-position: bottom;
-  	subcontrol-origin: margin;
-}
-QScrollBar::add-line:vertical:pressed {
-  	border: 1px solid grey;
-  	border-bottom-left-radius: 7px;
-  	border-bottom-right-radius: 7px;
-  	border-top-left-radius: 7px;
-  	background: rgb(231,231,231);
-  	height: 20px;
-  	subcontrol-position: bottom;
-  	subcontrol-origin: margin;
-}
-QScrollBar::sub-line:vertical {
-  	border: 1px solid;
-  	border-color: rgb(207,207,207);
-  	border-top-right-radius: 7px;
-  	border-top-left-radius: 7px;
-  	border-bottom-left-radius: 7px;
-  	background: rgb(255, 255, 255);
-  	height: 20px;
-  	subcontrol-position: top;
-  	subcontrol-origin: margin;
-}
-QScrollBar::sub-line:vertical:hover {
-  	border: 1px solid;
-  	border-color: rgb(255,150,60);
-  	border-top-right-radius: 7px;
-  	border-top-left-radius: 7px;
-  	border-bottom-left-radius: 7px;
-	background: rgb(255, 255, 255);
-  	height: 20px;
-  	subcontrol-position: top;
-  	subcontrol-origin: margin;
-}
-QScrollBar::sub-line:vertical:pressed {
-  	border: 1px solid grey;
-  	border-top-left-radius: 7px;
-  	border-top-right-radius: 7px;
-  	background: rgb(231,231,231);
- 	height: 20px;
-  	subcontrol-position: top;
-  	subcontrol-origin: margin;
-}
-QScrollBar::handle:vertical {
-	background: rgb(253,253,253);
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(207,207,207);
-	border-radius: 7px;
-	min-height: 25px;
-}
-QScrollBar::handle:vertical:hover {
-	background: rgb(253,253,253);
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(255,150,60);
-	border-radius: 7px;
-	min-height: 25px;
-}
-QScrollBar::up-arrow:vertical {
-	border: 1px transparent grey;
-  	border-top-left-radius: 3px;
-	border-top-right-radius: 3px;
-  	width: 6px;
-  	height: 6px;
-  	background: rgb(230,230,230);
-}
-QScrollBar::down-arrow:vertical {
-  	border: 1px transparent grey;
-  	border-bottom-left-radius: 3px;
-  	border-bottom-right-radius: 3px;
-  	width: 6px;
-  	height: 6px;
-  	background: rgb(230,230,230);
-}
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-  	background: none;
-}
-QTabWidget {
-	color:rgb(0,0,0);
-	background-color:rgb(247,246,246);
-}
-QTabWidget::pane {
-	border-color: rgb(180,180,180);
-	background-color:rgb(247,246,246);
-	border-style: solid;
-	border-width: 1px;
-  	border-radius: 6px;
-}
-QTabBar::tab {
-	padding-left:4px;
-	padding-right:4px;
-	padding-bottom:2px;
-	padding-top:2px;
-	color:rgb(81,72,65);
-  	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(221,218,217,255), stop:1 rgba(240,239,238,255));
-	border-style: solid;
-	border-width: 1px;
-  	border-top-right-radius:4px;
-	border-top-left-radius:4px;
-	border-top-color: rgb(180,180,180);
-	border-left-color: rgb(180,180,180);
-	border-right-color: rgb(180,180,180);
-	border-bottom-color: transparent;
-}
-QTabBar::tab:selected, QTabBar::tab:last:selected, QTabBar::tab:hover {
-  	background-color:rgb(247,246,246);
-  	margin-left: 0px;
-  	margin-right: 1px;
-}
-QTabBar::tab:!selected {
-	margin-top: 1px;
-	margin-right: 1px;
-}
-QTextEdit {
-	border-width: 1px;
-	border-style: solid;
-	border-color:transparent;
-	color:rgb(17,17,17);
-	selection-background-color:rgb(236,116,64);
-}
-QTimeEdit {
-	color:rgb(81,72,65);
-	background-color: #ffffff;
-}
-QToolBox {
-	color:rgb(81,72,65);
-	background-color: #ffffff;
-}
-QToolBox::tab {
-	color:rgb(81,72,65);
-	background-color: #ffffff;
-}
-QToolBox::tab:selected {
-	color:rgb(81,72,65);
-	background-color: #ffffff;
-}</string>
+   <string notr="true"/>
   </property>
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>10</y>
-     <width>831</width>
-     <height>391</height>
+     <width>841</width>
+     <height>401</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="page">
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <widget class="QPushButton" name="gestion_journaliste">
      <property name="geometry">
       <rect>
@@ -595,10 +42,16 @@ QToolBox::tab:selected {
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 75 22pt &quot;Roboto&quot;;</string>
+      <string notr="true">font: 75 22pt &quot;Roboto&quot;;
+border-image: url(:/xxx.png);
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+</string>
      </property>
      <property name="text">
-      <string>Gestion Des journaliste</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="gestion_des_mission">
@@ -611,10 +64,36 @@ QToolBox::tab:selected {
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 75 22pt &quot;Roboto&quot;;</string>
+      <string notr="true">font: 75 22pt &quot;Roboto&quot;;
+
+border-image: url(:/gesmiss.png);
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+</string>
      </property>
      <property name="text">
-      <string>Gestion des missions</string>
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="animation">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>30</y>
+       <width>171</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="whatsThis">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-style:italic;&quot;&gt;&lt;br/&gt;gestion des journalistes &lt;br&gt; et missions&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../cccc-01.png</pixmap>
      </property>
     </widget>
    </widget>
@@ -632,10 +111,11 @@ QToolBox::tab:selected {
       <enum>Qt::LeftToRight</enum>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 10pt &quot;Roboto&quot;;</string>
+      <string notr="true">font: 10pt &quot;Roboto&quot;;
+border-image: url(:/click.mp3);</string>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_4">
       <attribute name="title">
@@ -645,22 +125,22 @@ QToolBox::tab:selected {
        <property name="geometry">
         <rect>
          <x>340</x>
-         <y>270</y>
+         <y>280</y>
          <width>181</width>
          <height>34</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">#upLeft​ {
+        <string notr="true">border-image: url(:/add.png);
+
+
 background-color: transparent;
-border-image: url(:off.png);
 background: none;
 border: none;
-background-repeat: none;
-}</string>
+background-repeat: none;</string>
        </property>
        <property name="text">
-        <string>ajouter</string>
+        <string/>
        </property>
       </widget>
       <widget class="QWidget" name="horizontalLayoutWidget_8">
@@ -739,14 +219,21 @@ background-repeat: none;
       <widget class="QPushButton" name="return_3">
        <property name="geometry">
         <rect>
-         <x>720</x>
+         <x>704</x>
          <y>330</y>
-         <width>75</width>
+         <width>91</width>
          <height>23</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/return.png);
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;</string>
+       </property>
        <property name="text">
-        <string>retourne</string>
+        <string/>
        </property>
       </widget>
      </widget>
@@ -759,7 +246,7 @@ background-repeat: none;
         <rect>
          <x>10</x>
          <y>270</y>
-         <width>371</width>
+         <width>221</width>
          <height>81</height>
         </rect>
        </property>
@@ -786,16 +273,6 @@ background-repeat: none;
         <item>
          <widget class="QLineEdit" name="id_rechercher_2"/>
         </item>
-        <item>
-         <widget class="QPushButton" name="recherchep_2">
-          <property name="styleSheet">
-           <string notr="true">font: 10pt &quot;Roboto&quot;;</string>
-          </property>
-          <property name="text">
-           <string>recherche</string>
-          </property>
-         </widget>
-        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="horizontalLayoutWidget_10">
@@ -810,57 +287,6 @@ background-repeat: none;
        <layout class="QHBoxLayout" name="horizontalLayout_10">
         <item>
          <widget class="QTableView" name="tab_journaliste_2"/>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="horizontalLayoutWidget_11">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>401</width>
-         <height>36</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_11">
-        <item>
-         <widget class="QLabel" name="label_14">
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>12</pointsize>
-            <weight>50</weight>
-            <italic>false</italic>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">font: 12pt &quot;Roboto&quot;;</string>
-          </property>
-          <property name="text">
-           <string>Affichage des journalistes</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pdf_p_2">
-          <property name="styleSheet">
-           <string notr="true">font: 10pt &quot;Roboto&quot;;</string>
-          </property>
-          <property name="text">
-           <string>pdf</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="tri_p_2">
-          <property name="styleSheet">
-           <string notr="true">font: 10pt &quot;Roboto&quot;;</string>
-          </property>
-          <property name="text">
-           <string>tri</string>
-          </property>
-         </widget>
         </item>
        </layout>
       </widget>
@@ -959,115 +385,172 @@ background-repeat: none;
         </rect>
        </property>
       </widget>
-      <widget class="QWidget" name="horizontalLayoutWidget_13">
+      <widget class="QPushButton" name="recherchep_2">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>301</y>
+         <width>81</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Roboto&quot;;
+
+border-image: url(:/recherche.png);
+
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="trieprenom">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>20</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+border-image: url(:/prenom.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="tri_p_2">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>21</y>
+         <width>81</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+border-image: url(:/nom.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pdf_p_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/pdf.png);
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="afficherp_2">
        <property name="geometry">
         <rect>
          <x>460</x>
-         <y>10</y>
-         <width>341</width>
-         <height>36</height>
+         <y>20</y>
+         <width>111</width>
+         <height>21</height>
         </rect>
        </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_13">
-        <item>
-         <widget class="QPushButton" name="afficherp_2">
-          <property name="styleSheet">
-           <string notr="true">font: 10pt &quot;Roboto&quot;;</string>
-          </property>
-          <property name="text">
-           <string>afficher</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="modifierp_2">
-          <property name="styleSheet">
-           <string notr="true">font: 10pt &quot;Roboto&quot;;</string>
-          </property>
-          <property name="text">
-           <string>modifer</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="supprimer_2">
-          <property name="styleSheet">
-           <string notr="true">font: 10pt &quot;Roboto&quot;;</string>
-          </property>
-          <property name="text">
-           <string>supprimer</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Roboto&quot;;
+border-image: url(:/afficher.png);
+
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="modifierp_2">
+       <property name="geometry">
+        <rect>
+         <x>580</x>
+         <y>20</y>
+         <width>111</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Roboto&quot;;
+background-color: transparent;
+border-image: url(:/modifier.png);
+background: none;
+border: none;
+background-repeat: none;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="supprimer_2">
+       <property name="geometry">
+        <rect>
+         <x>700</x>
+         <y>20</y>
+         <width>111</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Roboto&quot;;
+border-image: url(:/delete.png);
+
+
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
       </widget>
      </widget>
      <widget class="QWidget" name="tab_6">
       <attribute name="title">
        <string>Mailling</string>
       </attribute>
-      <widget class="QWidget" name="horizontalLayoutWidget_14">
+      <widget class="QFrame" name="statv">
        <property name="geometry">
         <rect>
          <x>100</x>
-         <y>110</y>
-         <width>631</width>
-         <height>121</height>
+         <y>40</y>
+         <width>561</width>
+         <height>281</height>
         </rect>
        </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_14">
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_7">
-          <item>
-           <widget class="QLabel" name="label_15">
-            <property name="text">
-             <string>Mail</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_16">
-            <property name="text">
-             <string>objet</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_32">
-            <property name="text">
-             <string>Contenu</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_12">
-          <item>
-           <widget class="QLineEdit" name="mail_2"/>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="objet_2"/>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="contenu_2"/>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QPushButton" name="envoyer">
-       <property name="geometry">
-        <rect>
-         <x>360</x>
-         <y>240</y>
-         <width>161</width>
-         <height>34</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>envoyer</string>
-       </property>
+       <layout class="QVBoxLayout" name="verticalLayout"/>
       </widget>
      </widget>
     </widget>
@@ -1105,16 +588,15 @@ background-repeat: none;
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">#upLeft​ {
+        <string notr="true">
 background-color: transparent;
-border-image: url(:off.png);
 background: none;
 border: none;
 background-repeat: none;
-}</string>
+border-image: url(:/add.png);</string>
        </property>
        <property name="text">
-        <string>ajouter</string>
+        <string/>
        </property>
       </widget>
       <widget class="QWidget" name="horizontalLayoutWidget_15">
@@ -1183,14 +665,22 @@ background-repeat: none;
       <widget class="QPushButton" name="return_4">
        <property name="geometry">
         <rect>
-         <x>720</x>
+         <x>704</x>
          <y>330</y>
-         <width>75</width>
+         <width>91</width>
          <height>23</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+border-image: url(:/return.png);</string>
+       </property>
        <property name="text">
-        <string>retourne</string>
+        <string/>
        </property>
       </widget>
      </widget>
@@ -1203,7 +693,7 @@ background-repeat: none;
         <rect>
          <x>10</x>
          <y>270</y>
-         <width>261</width>
+         <width>211</width>
          <height>81</height>
         </rect>
        </property>
@@ -1230,16 +720,6 @@ background-repeat: none;
         <item>
          <widget class="QLineEdit" name="id_rechercher_3"/>
         </item>
-        <item>
-         <widget class="QPushButton" name="recherchep_3">
-          <property name="styleSheet">
-           <string notr="true">font: 10pt &quot;Roboto&quot;;</string>
-          </property>
-          <property name="text">
-           <string>recherche</string>
-          </property>
-         </widget>
-        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="horizontalLayoutWidget_17">
@@ -1257,63 +737,12 @@ background-repeat: none;
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="horizontalLayoutWidget_18">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>391</width>
-         <height>36</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_18">
-        <item>
-         <widget class="QLabel" name="label_36">
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>12</pointsize>
-            <weight>50</weight>
-            <italic>false</italic>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">font: 12pt &quot;Roboto&quot;;</string>
-          </property>
-          <property name="text">
-           <string>Affichage des mission</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pdf_p_3">
-          <property name="styleSheet">
-           <string notr="true">font: 10pt &quot;Roboto&quot;;</string>
-          </property>
-          <property name="text">
-           <string>pdf</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="tri_p_3">
-          <property name="styleSheet">
-           <string notr="true">font: 10pt &quot;Roboto&quot;;</string>
-          </property>
-          <property name="text">
-           <string>tri</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
       <widget class="QTableView" name="recherche_tab_3">
        <property name="geometry">
         <rect>
-         <x>280</x>
+         <x>400</x>
          <y>270</y>
-         <width>511</width>
+         <width>391</width>
          <height>79</height>
         </rect>
        </property>
@@ -1321,9 +750,9 @@ background-repeat: none;
       <widget class="QWidget" name="horizontalLayoutWidget_19">
        <property name="geometry">
         <rect>
-         <x>410</x>
+         <x>440</x>
          <y>90</y>
-         <width>381</width>
+         <width>351</width>
          <height>131</height>
         </rect>
        </property>
@@ -1381,47 +810,157 @@ background-repeat: none;
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="horizontalLayoutWidget_20">
+      <widget class="QPushButton" name="pdf_p_3">
        <property name="geometry">
         <rect>
-         <x>520</x>
-         <y>-10</y>
-         <width>271</width>
-         <height>80</height>
+         <x>180</x>
+         <y>20</y>
+         <width>101</width>
+         <height>21</height>
         </rect>
        </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_20">
-        <item>
-         <widget class="QPushButton" name="afficherp_3">
-          <property name="styleSheet">
-           <string notr="true">font: 10pt &quot;Roboto&quot;;</string>
-          </property>
-          <property name="text">
-           <string>afficher</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="modifierp_3">
-          <property name="styleSheet">
-           <string notr="true">font: 10pt &quot;Roboto&quot;;</string>
-          </property>
-          <property name="text">
-           <string>modifer</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="supprimer_3">
-          <property name="styleSheet">
-           <string notr="true">font: 10pt &quot;Roboto&quot;;</string>
-          </property>
-          <property name="text">
-           <string>supprimer</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       <property name="styleSheet">
+        <string notr="true">
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+border-image: url(:/pdf.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="tri_p_3">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>20</y>
+         <width>111</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Roboto&quot;;
+
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+border-image: url(:/TRIE.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_36">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>-70</y>
+         <width>161</width>
+         <height>209</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Roboto&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Affichage des mission</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="afficherp_3">
+       <property name="geometry">
+        <rect>
+         <x>440</x>
+         <y>20</y>
+         <width>111</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/afficher.png);
+
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="modifierp_3">
+       <property name="geometry">
+        <rect>
+         <x>690</x>
+         <y>20</y>
+         <width>111</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/modifier.png);
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+font: 10pt &quot;Roboto&quot;;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="supprimer_3">
+       <property name="geometry">
+        <rect>
+         <x>560</x>
+         <y>20</y>
+         <width>121</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+border-image: url(:/delete.png);
+font: 10pt &quot;Roboto&quot;;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="recherchep_3">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>300</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/recherche.png);
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
       </widget>
      </widget>
     </widget>

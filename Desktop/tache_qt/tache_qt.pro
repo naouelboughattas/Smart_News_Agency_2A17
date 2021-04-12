@@ -1,4 +1,5 @@
-QT       += core gui sql printsupport network
+QT       += core gui sql printsupport network multimedia charts
+
 CONFIG += console
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -54,10 +55,16 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    multimedia.qrc
 
 DISTFILES += \
     mailing qt6/simplemail-qt5.pc.in \
     mailing/CMakeLists.txt \
     mailing/simplemail-qt5.pc.in \
     mailingqt6/simplemail-qt5.pc.in \
+    simple-mail-master/src/CMakeLists.txt \
+    simple-mail-master/src/simplemail-qt5.pc.in \
     simple-mail-master/src/simplemail-qt5.pc.in
+
+
+

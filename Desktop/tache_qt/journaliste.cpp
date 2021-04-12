@@ -55,8 +55,8 @@ model->setQuery("SELECT* from journaliste");
 model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
 model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
 model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
-model->setHeaderData(2, Qt::Horizontal, QObject::tr("fonction"));
-model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+model->setHeaderData(3, Qt::Horizontal, QObject::tr("fonction"));
+model->setHeaderData(4, Qt::Horizontal, QObject::tr("diplome"));
 
     return model;
 }
@@ -93,43 +93,66 @@ query.prepare("Delete from journaliste where ID = :id ");
 query.bindValue(":id", res);
 return    query.exec();
 
-if(id==  NULL || nom.isEmpty() || prenom.isEmpty() || fonction.isEmpty() || diplome.isEmpty() )
-{
-    QMessageBox::critical(nullptr, QObject::tr("Verification"),
-         QObject::tr("Erreur champ vide!.\n"
-                     "Click Cancel to exit."), QMessageBox::Cancel);
-    return false;
-}
 }
 
-QSqlQueryModel * gesjournaliste::rechercher(QString nom)
+QSqlQueryModel * gesjournaliste::rechercher(QString nom )
 {
     QSqlQueryModel * model= new QSqlQueryModel();
+    QSqlQuery query;
+    nom='%'+nom+'%';
 
-    model->setQuery("select * from journaliste where NOM = '"+nom+"'");
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom "));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
-    if(nom.isEmpty() )
-    {
-        QMessageBox::critical(nullptr, QObject::tr("Rcherche"),
-             QObject::tr("Erreur champ vide!.\n"
-                         "Click Cancel to exit."), QMessageBox::Cancel);
-    }
+    query.prepare("select * from journaliste where nom like :nom order by nom");
+    query.addBindValue(nom);
+    query.exec();
+
+    model->setQuery(query);
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("id"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("nom"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("prenom"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("fonction"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("diplome"));
+
+
+
         return model;
 
 }
-QSqlQueryModel *gesjournaliste:: tri_id()
+QSqlQueryModel *gesjournaliste:: tri_nom()
 {
     QSqlQueryModel * model= new QSqlQueryModel();
     model->setQuery("Select * from journaliste order by nom ASC ");
     model->setHeaderData(0,Qt::Horizontal,QObject::tr("id"));
     model->setHeaderData(1,Qt::Horizontal,QObject::tr("nom"));
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("prenom"));
-    model->setHeaderData(2,Qt::Horizontal,QObject::tr("fonction"));
-    model->setHeaderData(2,Qt::Horizontal,QObject::tr("diplome"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("fonction"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("diplome"));
 
 
 
     return model;
+}
+QSqlQueryModel *gesjournaliste:: tri_prenom()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("Select * from journaliste order by prenom ASC ");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("id"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("nom"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("prenom"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("fonction"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("diplome"));
+
+
+
+    return model;
+}
+
+bool gesjournaliste::fetch(QString diplome)
+{ QSqlQuery query;
+    query.prepare("Select *from journaliste where diplome='"+diplome+"'");
+     query.exec();
+    int a=0;
+    while(query.next())
+    {a++;
+    }
+    return a;
 }

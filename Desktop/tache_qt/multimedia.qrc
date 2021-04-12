@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <file>sq-01.png</file>
+        <file>click.mp3</file>
+        <file>wallpapertip_flare-wallpaper_489543.jpg</file>
+        <file>xxx.png</file>
+        <file>gestion misssion-01.png</file>
+        <file>gesmiss.png</file>
+        <file>add.png</file>
+        <file>afficher.png</file>
+        <file>delete.png</file>
+        <file>modifier.png</file>
+        <file>nom.png</file>
+        <file>pdf.png</file>
+        <file>prenom.png</file>
+        <file>recherche.png</file>
+        <file>TRIE.png</file>
+        <file>return.png</file>
+        <file>../300ppi/Asset 2.png</file>
+        <file>../x-01.png</file>
+        <file>../cccc-01.png</file>
+    </qresource>
+</RCC>

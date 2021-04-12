@@ -24,8 +24,9 @@ public:
     bool modifier();
     bool supprimer(int);
     QSqlQueryModel * rechercher(QString);
-    QSqlQueryModel * tri_id();
-
+    QSqlQueryModel * tri_nom();
+    QSqlQueryModel * tri_prenom();
+    bool fetch(QString);
 private:
     int id ;
     QString nom,prenom,fonction,diplome;

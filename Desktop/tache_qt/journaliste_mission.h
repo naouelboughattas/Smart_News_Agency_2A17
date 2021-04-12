@@ -5,6 +5,10 @@
 #include "journaliste.h"
 #include "connection.h"
 #include"missions.h"
+#include<QMediaPlayer>
+#include<QtCharts>
+#include<qchartview.h>
+#include<QLineSeries>
 namespace Ui {
 class journaliste_mission;
 }
@@ -62,15 +66,23 @@ private slots:
 
     void on_return_3_clicked();
 
+    void on_trieprenom_clicked();
+
+    void on_send_clicked();
+
 private:
     Ui::journaliste_mission *ui;
     gesjournaliste *g ;
     gesjournaliste *r ;
     gesjournaliste *t ;
+
+    gesjournaliste m;
     missions *a;
     missions *s;
     missions *b;
     missions *tri;
+    QMediaPlayer *click;
+
 };
 
 #endif // JOURNALISTE_MISSION_H

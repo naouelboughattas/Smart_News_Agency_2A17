@@ -32,6 +32,8 @@ public:
     QWidget *page;
     QPushButton *gestion_journaliste;
     QPushButton *gestion_des_mission;
+    QLabel *label;
+    QLabel *animation;
     QWidget *page_2;
     QTabWidget *tabWidget;
     QWidget *tab_4;
@@ -65,6 +67,7 @@ public:
     QLabel *label_14;
     QPushButton *pdf_p_2;
     QPushButton *tri_p_2;
+    QPushButton *trieprenom;
     QWidget *horizontalLayoutWidget_12;
     QHBoxLayout *horizontalLayout_12;
     QVBoxLayout *verticalLayout_10;
@@ -739,6 +742,13 @@ public:
         gestion_des_mission->setObjectName(QString::fromUtf8("gestion_des_mission"));
         gestion_des_mission->setGeometry(QRect(430, 150, 331, 71));
         gestion_des_mission->setStyleSheet(QString::fromUtf8("font: 75 22pt \"Roboto\";"));
+        label = new QLabel(page);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(290, 360, 47, 13));
+        animation = new QLabel(page);
+        animation->setObjectName(QString::fromUtf8("animation"));
+        animation->setGeometry(QRect(260, -70, 301, 231));
+        animation->setPixmap(QPixmap(QString::fromUtf8(":/sq-01.png")));
         stackedWidget->addWidget(page);
         page_2 = new QWidget();
         page_2->setObjectName(QString::fromUtf8("page_2"));
@@ -901,6 +911,11 @@ public:
         tri_p_2->setStyleSheet(QString::fromUtf8("font: 10pt \"Roboto\";"));
 
         horizontalLayout_11->addWidget(tri_p_2);
+
+        trieprenom = new QPushButton(horizontalLayoutWidget_11);
+        trieprenom->setObjectName(QString::fromUtf8("trieprenom"));
+
+        horizontalLayout_11->addWidget(trieprenom);
 
         horizontalLayoutWidget_12 = new QWidget(tab_5);
         horizontalLayoutWidget_12->setObjectName(QString::fromUtf8("horizontalLayoutWidget_12"));
@@ -1285,7 +1300,7 @@ public:
 
         retranslateUi(journaliste_mission);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(1);
         tabWidget->setCurrentIndex(1);
         tabWidget_2->setCurrentIndex(0);
 
@@ -1298,6 +1313,11 @@ public:
         journaliste_mission->setWindowTitle(QCoreApplication::translate("journaliste_mission", "Dialog", nullptr));
         gestion_journaliste->setText(QCoreApplication::translate("journaliste_mission", "Gestion Des journaliste", nullptr));
         gestion_des_mission->setText(QCoreApplication::translate("journaliste_mission", "Gestion des missions", nullptr));
+        label->setText(QString());
+#if QT_CONFIG(whatsthis)
+        animation->setWhatsThis(QCoreApplication::translate("journaliste_mission", "<html><head/><body><p><span style=\" font-size:16pt; font-style:italic;\"><br/>gestion des journalistes <br> et missions</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(whatsthis)
+        animation->setText(QCoreApplication::translate("journaliste_mission", "<html><head/><body><p><img src=\":/sq-01.png\"/></p></body></html>", nullptr));
         pb_ajouter_2->setText(QCoreApplication::translate("journaliste_mission", "ajouter", nullptr));
         label_9->setText(QCoreApplication::translate("journaliste_mission", "id journaliste:", nullptr));
         label_10->setText(QCoreApplication::translate("journaliste_mission", "nom :", nullptr));
@@ -1310,7 +1330,8 @@ public:
         recherchep_2->setText(QCoreApplication::translate("journaliste_mission", "recherche", nullptr));
         label_14->setText(QCoreApplication::translate("journaliste_mission", "Affichage des journalistes", nullptr));
         pdf_p_2->setText(QCoreApplication::translate("journaliste_mission", "pdf", nullptr));
-        tri_p_2->setText(QCoreApplication::translate("journaliste_mission", "tri", nullptr));
+        tri_p_2->setText(QCoreApplication::translate("journaliste_mission", "trie par nom", nullptr));
+        trieprenom->setText(QCoreApplication::translate("journaliste_mission", "trie  prenom", nullptr));
         label_27->setText(QCoreApplication::translate("journaliste_mission", "id journaliste:", nullptr));
         label_28->setText(QCoreApplication::translate("journaliste_mission", "nom :", nullptr));
         label_29->setText(QCoreApplication::translate("journaliste_mission", "prenom:", nullptr));
