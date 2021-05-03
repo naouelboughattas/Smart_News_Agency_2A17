@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 #include "publicite.h"
 #include "sponsors_crud.h"
+#include"qrcode.h"
 #include <QMainWindow>
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
@@ -28,16 +29,16 @@ private slots:
 
     void on_supprimerp_clicked();
 
-    void on_trie_publicite_clicked();
+   // void on_trie_publicite_clicked();
 
 
     void on_recherche_publicite_clicked();
 
-    void on_tri_publicite_clicked(bool checked);
+    //void on_tri_publicite_clicked(bool checked);
 
     void on_tri_publicite_clicked();
 
-    void on_envoyer_clicked();
+    //void on_envoyer_clicked();
 
     void on_pushButton_clicked();
 
@@ -47,7 +48,7 @@ private slots:
 
     void on_pushButton_4_clicked();
 
-    void on_gestionpub_clicked();
+    //void on_gestionpub_clicked();
 
     void on_p_ajouter_2_clicked();
 
@@ -71,6 +72,19 @@ private slots:
 
     void on_tab_sponsor_activated(const QModelIndex &index);
 
+    void on_mailing_clicked();
+    void on_pButtonSave_3_clicked();
+
+    void on_sBoxScale_3_valueChanged(int arg1);
+    void on_pTextEditQRText_3_textChanged();
+    void on_pButtonQuit_3_clicked();
+
+
+
+private:
+    void updateQRImage();
+    void setScale(int);
+
 private:
     Ui::MainWindow *ui;
     publicite *a;
@@ -85,6 +99,13 @@ private:
     QMediaPlayer *click;
     QPropertyAnimation *animation;
     QPropertyAnimation *animation1;
+    CQR_Encode qrEncode;
+    bool successfulEncoding;
+    int encodeImageSize;
+    QPoint lastPos;
+protected:
+    void closeEvent(QCloseEvent *);
+    bool eventFilter( QObject * object, QEvent * event );
 
 };
 #endif // MAINWINDOW_H

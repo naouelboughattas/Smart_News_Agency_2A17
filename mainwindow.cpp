@@ -8,14 +8,62 @@
 #include "qpdfwriter.h"
 #include "QtPrintSupport/qprinter.h"
 #include "qdebug.h"
+#include "smtp.h"
+#include "qrcode.h"
+#include "QDesktopServices"
+#include "QtPrintSupport/QPrinter"
+#include"qsqlquery.h"
+#include "qobject.h"
+#include "qsqlerror.h"
+#include"QIntValidator"
+#include"qcoreapplication.h"
+#include"qdebug.h"
+#include <QPropertyAnimation>
 
+#include <QImageWriter>
+#include <QDesktopServices>
+#include <QMediaPlayer>
+#include <QtCharts/QChartView>
+#include <QtCharts/qlineseries.h>
+#include <QtCharts/QBarSet>
+#include "qsqlquery.h"
+#include <QSound>
+#include <QFile>
+#include <QFile>
+#include <QTextStream>
+#include <QFileDialog>
+#include <QMouseEvent>
+#include <QScrollArea>
+#include <QImageWriter>
+#include <QScrollBar>
+#include <QSettings>
+#include <QApplication>
+#include <QDebug>
+
+const QString getIniPath()
+{
+    const static QString iniPath( qApp->applicationDirPath() + "/settings.ini" );
+    return iniPath;
+}
+QString saveFormats()
+{
+    static QString suffix;
+    foreach ( const QByteArray & format , QImageWriter::supportedImageFormats() )
+        suffix += QString( "%1 ( *.%2 )\n" )
+                .arg( QString( format ).toUpper() )
+                .arg( QString( format ) );
+
+    return suffix;
+}
 
 
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::MainWindow),
+    successfulEncoding(false)
 {
+
     ui->setupUi(this);
     click = new QMediaPlayer();
         click->setMedia(QUrl::fromLocalFile("C:/Users/Sahar Zouari/Desktop/PROJET C++/projet_qt/click.wav"));
@@ -29,9 +77,17 @@ MainWindow::MainWindow(QWidget *parent)
         animation1->setStartValue(ui->pushButton_2->geometry());
         animation1->setEndValue(QRect(220,210,361,71));
         animation1->start();
-       // ui->id_publicite_4->setValidator(new QIntValidator(1, 999999, this));
-        //ui->id_publicite_2->setValidator(new QIntValidator(1, 999999, this));
-       // ui->id_4->setValidator(new QIntValidator(1, 999999, this));
+        ui->tarif_publicite->setValidator(new QIntValidator(1, 999999, this));
+        ui->tarif_publicite_2->setValidator(new QIntValidator(1, 999999, this));
+        ui->id_publicite_2->setValidator(new QIntValidator(1, 999999, this));
+       ui->id_3->setValidator(new QIntValidator(1, 999999, this));
+        ui->id_publicite->setValidator(new QIntValidator(1,999999, this));
+        ui->id_client->setValidator(new QIntValidator(1, 999999, this));
+        ui->id_client_2->setValidator(new QIntValidator(1, 999999, this));
+        ui->id_sponsor->setValidator(new QIntValidator(1, 999999, this));
+        ui->id_sponsor_2->setValidator(new QIntValidator(1, 999999, this));
+        ui->id_sponsor_3->setValidator(new QIntValidator(1, 999999, this));
+
 }
 
 MainWindow::~MainWindow()
@@ -363,41 +419,42 @@ void MainWindow::on_pushButton_5_clicked()
 void MainWindow::on_pushButton_7_clicked()
 {click->play();
     qDebug()<<click ->errorString();
-    sponsors_crud pdf;
-            QPrinter printer;
-            printer.setOutputFormat(QPrinter::PdfFormat);
-            printer.setOutputFileName("C:/Users/Sahar Zouari/Desktop/PROJET C++/projet_qt/pdf");
-            QPainter painter;
-            if(!painter.begin(&printer)){
-                qWarning("failed to open");}
-                QSqlQuery qry;
-                qry.prepare("select * from sponsors");
-                int kk=200,dd=300,bb=400;
-            if(qry.exec())
-                {
-                while (qry.next()){
-                QString n = qry.value(0).toString();
-                QString d = qry.value(1).toString();
-                QString e = qry.value(2).toString();
-                QString f = qry.value(3).toString();
-                QString g = qry.value(4).toString();
-            painter.setPen(Qt::blue);
-            painter.setFont(QFont("Times",30));
-                painter.drawText(300,100,"liste des sponsors");
-                painter.setFont(QFont("Times",15));
-                painter.setPen(Qt::black);
-             painter.drawText(100,kk,n);
-             painter.drawText(200,kk,d);
-             painter.drawText(100,dd,e);
-             painter.drawText(200,dd,f);
-             painter.drawText(100,bb,g);
-             printer.newPage();
-            }}
-              painter.end();
-              qDebug()<<"le pdf a été crée";
-              QMessageBox::information(this,"pdf crée","ce pdf a été crée");
+    QPdfWriter pdf("C:/Users/Sahar Zouari/Desktop/PROJET C++/projet_qt/PDF.pdf");
+QPainter painter(&pdf);
+     int i = 4000;
+ painter.setPen(Qt::red);
+ painter.setFont(QFont("Arial", 30));
+ painter.drawText(2300,1200,"Liste Des Sponsors");
+ painter.setPen(Qt::black);
+ painter.setFont(QFont("Arial", 50));
+ //painter.drawText(1100,2000,afficheDC);
+ painter.drawRect(1500,200,7300,2600);
+ painter.drawPixmap(QRect(7600,70,2000,2600),QPixmap("C:/Users/Sahar Zouari/Desktop/PROJET C++/projet_qt/PDF.pdf"));
+ painter.drawRect(0,3000,9600,500);
+ painter.setFont(QFont("Arial", 9));
+ painter.drawText(300,3300,"id_sponsor");
+ painter.drawText(1800,3300,"domaine_sponsor");
+ painter.drawText(3300,3300,"nom_sponsor");
+ painter.drawText(4800,3300,"adresse_sponsor");
+ painter.drawText(6300,3300,"type_sponsor");
 
 
+
+ QSqlQuery query;
+ query.prepare("select * from sponsors");
+      query.exec();
+      while (query.next())
+         {
+          painter.drawText(300,i,query.value(0).toString());
+          painter.drawText(1800,i,query.value(1).toString());
+          painter.drawText(3300,i,query.value(2).toString());
+          painter.drawText(4800,i,query.value(3).toString());
+          painter.drawText(6300,i,query.value(4).toString());
+
+          i = i +500;
+                                  }
+qDebug()<<"le pdf a ete cree";
+  QMessageBox::information(this,"pdf cree","ce pdf a ete cree");
 }
 
 void MainWindow::on_pushButton_6_clicked()
@@ -472,4 +529,148 @@ void MainWindow::on_tab_sponsor_activated(const QModelIndex &index)
                                     "Click Cancel to exit."), QMessageBox::Cancel);
         }
 
+}
+
+void MainWindow::on_mailing_clicked()
+{
+    click->play();
+        qDebug()<<click ->errorString();
+        Smtp* smtp;
+            smtp = new Smtp("smartnewsagency1@gmail.com", "SMARTNEWSAGENCY", "smtp.gmail.com");
+            //connect(smtp, SIGNAL(clicked()), this, SLOT(on_Mail_clicked()));
+
+            smtp->sendMail("smartnewsagency1@gmail.com", "smartnewsagency1@gmail.com" , "test","test ");
+}
+
+
+/*void MainWindow::on_exit_clicked()
+{
+    this->close();
+}*/
+void MainWindow::updateQRImage()
+{
+    int sizeText = ui->pTextEditQRText_3->toPlainText().size();
+    ui->labelSizeText_3->setText( QString::number( sizeText ) );
+
+    int levelIndex = 1;
+    int versionIndex = 0;
+    bool bExtent = true;
+    int maskIndex = -1;
+    QString encodeString = ui->pTextEditQRText_3->toPlainText();
+
+    successfulEncoding = qrEncode.EncodeData( levelIndex, versionIndex, bExtent, maskIndex, encodeString.toUtf8().data() );
+    if ( !successfulEncoding )
+    {
+        ui->image_label_3->clear();
+        ui->image_label_3->setText( tr("QR Code...") );
+        ui->labelSize_3->clear();
+        ui->pButtonSave_3->setEnabled( successfulEncoding );
+        return;
+    }
+
+    int qrImageSize = qrEncode.m_nSymbleSize;
+
+    // Создаем двумерный образ кода
+    encodeImageSize = qrImageSize + ( QR_MARGIN * 2 );
+    QImage encodeImage( encodeImageSize, encodeImageSize, QImage::Format_Mono );
+    encodeImage.fill( 1 );
+
+    // Создать двумерный образ кода
+    for ( int i = 0; i < qrImageSize; i++ )
+        for ( int j = 0; j < qrImageSize; j++ )
+            if ( qrEncode.m_byModuleData[i][j] )
+                encodeImage.setPixel( i + QR_MARGIN, j + QR_MARGIN, 0 );
+
+    ui->image_label_3->setPixmap( QPixmap::fromImage( encodeImage ) );
+
+    setScale(ui->sBoxScale_3->value());
+    ui->pButtonSave_3->setEnabled( successfulEncoding );
+}
+void MainWindow::setScale(int scale)
+{
+    if ( successfulEncoding )
+    {
+        int scale_size = encodeImageSize * scale;
+
+        const QPixmap & scale_image = ui->image_label_3->pixmap()->scaled( scale_size, scale_size );
+        ui->image_label_3->setPixmap( scale_image );
+
+        const QString & size_info = QString( "%1x%2" ).arg( scale_size ).arg( scale_size );
+        ui->labelSize_3->setText( size_info );
+    }
+}
+void MainWindow::on_pButtonSave_3_clicked()
+{
+    const QString & path = QFileDialog::getSaveFileName( this, QString::null, "qrcode", saveFormats() );
+    if ( path.isNull() )
+        return;
+
+    ui->image_label_3->pixmap()->save( path );
+}
+void MainWindow::on_sBoxScale_3_valueChanged(int arg1)
+{
+    setScale( arg1 );
+}
+void MainWindow::on_pTextEditQRText_3_textChanged()
+{
+    updateQRImage();
+}
+void MainWindow::on_pButtonQuit_3_clicked()
+{
+    close();
+}
+
+void MainWindow::closeEvent(QCloseEvent *)
+{
+    QSettings ini( getIniPath(), QSettings::IniFormat );
+    ini.setValue( ui->splitter_5->objectName(), ui->splitter_5->saveState() );
+    ini.setValue( ui->splitter_6->objectName(), ui->splitter_6->saveState() );
+    ini.setValue( ui->sBoxScale_3->objectName(), ui->sBoxScale_3->value() );
+  //  ini.setValue( "State", saveState() );
+    ini.setValue( "Geometry", saveGeometry() );
+
+    qApp->quit();
+}
+bool MainWindow::eventFilter( QObject * object, QEvent * event )
+{
+    QScrollArea * scrollArea = ui->scrollArea_3;
+
+    if ( object == scrollArea )
+    {
+        if ( event->type() == QEvent::MouseButtonPress )
+        {
+            QMouseEvent * mouseEvent = static_cast < QMouseEvent * > ( event );
+            if ( mouseEvent->button() == Qt::LeftButton )
+            {
+                lastPos = mouseEvent->pos();
+
+                if( scrollArea->horizontalScrollBar()->isVisible()
+                        || scrollArea->verticalScrollBar()->isVisible() )
+                    scrollArea->setCursor( Qt::ClosedHandCursor );
+                else
+                    scrollArea->setCursor( Qt::ArrowCursor );
+            }
+
+        }else if ( event->type() == QEvent::MouseMove )
+        {
+            QMouseEvent *mouseEvent = static_cast < QMouseEvent * > ( event );
+
+            if ( mouseEvent->buttons() == Qt::LeftButton )
+            {
+                lastPos -= mouseEvent->pos();
+
+                int hValue = scrollArea->horizontalScrollBar()->value();
+                int vValue = scrollArea->verticalScrollBar()->value();
+
+                scrollArea->horizontalScrollBar()->setValue( lastPos.x() + hValue );
+                scrollArea->verticalScrollBar()->setValue( lastPos.y() + vValue );
+
+                lastPos = mouseEvent->pos();
+            }
+
+        }else if ( event->type() == QEvent::MouseButtonRelease )
+            scrollArea->setCursor( Qt::ArrowCursor );
+    }
+
+    return QWidget::eventFilter(object, event);
 }

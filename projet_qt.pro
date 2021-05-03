@@ -16,12 +16,16 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     publicite.cpp \
+    qrcode.cpp \
+    smtp.cpp \
     sponsors_crud.cpp
 
 HEADERS += \
     connexion.h \
     mainwindow.h \
     publicite.h \
+    qrcode.h \
+    smtp.h \
     sponsors_crud.h
 
 FORMS += \
@@ -33,4 +37,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    background1.qrc \
     resources.qrc

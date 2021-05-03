@@ -2,6 +2,7 @@
 #include"qsqlquery.h"
 #include "qdebug.h"
 #include "qobject.h"
+#include "qmessagebox.h"
 publicite::publicite()
 {
 
@@ -42,7 +43,13 @@ query.bindValue(":type_publicite", type_publicite);
 query.bindValue(":tarif_publicite", resss);
 query.bindValue(":date_lancement", date_lancement);
 query.bindValue(":duree_publicite", duree_publicite);
-
+if(id_publicite==  0 ||  id_client==  0  || type_publicite.isEmpty() || tarif_publicite==  0 || date_lancement.isEmpty() || duree_publicite.isEmpty() )
+{
+    QMessageBox::critical(nullptr, QObject::tr("Verification d'ajout"),
+         QObject::tr("Erreur champ vide!.\n"
+                     "Click Cancel to exit."), QMessageBox::Cancel);
+    return false;
+}
 return    query.exec();
 }
 QSqlQueryModel * publicite::afficher()
@@ -73,8 +80,12 @@ QString resss = QString::number(tarif_publicite);
                 query.bindValue(":tarif_publicite",resss);
                 query.bindValue(":date_lancement",date_lancement);
                 query.bindValue(":duree_publicite",duree_publicite);
-
-
+                if(id_publicite==  0 ||  id_client==  0  || type_publicite.isEmpty() || tarif_publicite==  0 || date_lancement.isEmpty() || duree_publicite.isEmpty() )
+                {
+                    QMessageBox::critical(nullptr, QObject::tr("Verification de modification"),
+                         QObject::tr("Erreur champ vide!.\n"
+                                     "Click Cancel to exit."), QMessageBox::Cancel);
+}
             return  query.exec();
 }
 bool publicite::supprimer(int idd)
@@ -129,6 +140,9 @@ QSqlQueryModel * publicite::rechercher(QString type_publicite)
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("tarif_publicite"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("date_lancement"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("duree_publicite"));
+    QMessageBox::critical(nullptr, QObject::tr("Verification de recherche"),
+         QObject::tr("Erreur champ vide!.\n"
+                     "Click Cancel to exit."), QMessageBox::Cancel);
 
         return model;
 
