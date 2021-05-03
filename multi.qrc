@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file>add.png</file>
+        <file>afficher.png</file>
+        <file>click.mp3</file>
+        <file>delete.png</file>
+        <file>gesmiss.png</file>
+        <file>gestion misssion-01.png</file>
+        <file>modifier.png</file>
+        <file>nom.png</file>
+        <file>pdf.png</file>
+        <file>prenom.png</file>
+        <file>recherche.png</file>
+        <file>return.png</file>
+        <file>send.png</file>
+        <file>TRIE.png</file>
+        <file>xxx.png</file>
+        <file>icone.ico</file>
+        <file>cccc-01.png</file>
+    </qresource>
+</RCC>

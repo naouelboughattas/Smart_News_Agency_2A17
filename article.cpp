@@ -113,25 +113,47 @@ if(id_Article==  NULL || libelle_Article.isEmpty() || description_Article.isEmpt
 
 QSqlQueryModel * Article::rechercher(QString libelle_Article)
 {
-    QSqlQueryModel * model= new QSqlQueryModel();
+            QSqlQueryModel * model= new QSqlQueryModel();
+            QSqlQuery query;
+            libelle_Article='%'+libelle_Article+'%';
 
-    model->setQuery("select * from article where libelle_Article = '"+libelle_Article+"'");
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_Article"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("libelle_Article "));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("description_Article"));
-    if(libelle_Article.isEmpty() )
-    {
-        QMessageBox::critical(nullptr, QObject::tr("Rcherche"),
-             QObject::tr("Erreur champ vid_Articlee!.\n"
-                         "Click Cancel to exit."), QMessageBox::Cancel);
-    }
-        return model;
+            query.prepare("select * from article where libelle_Article like :libelle_Article order by libelle_Article");
+            query.addBindValue(libelle_Article);
+            query.exec();
+
+            model->setQuery(query);
+            model->setHeaderData(0,Qt::Horizontal,QObject::tr("id_Article"));
+            model->setHeaderData(1,Qt::Horizontal,QObject::tr("libelle_Article"));
+            model->setHeaderData(2,Qt::Horizontal,QObject::tr("description_Article"));
+            model->setHeaderData(3,Qt::Horizontal,QObject::tr("nbre_page"));
+            model->setHeaderData(4,Qt::Horizontal,QObject::tr("priorite"));
+            model->setHeaderData(5,Qt::Horizontal,QObject::tr("format"));
+
+
+
+                return model;
 
 }
-QSqlQueryModel *Article:: tri_id()
+QSqlQueryModel *Article:: tri_libelle()
 {
     QSqlQueryModel * model= new QSqlQueryModel();
     model->setQuery("Select * from article order by libelle_Article ASC ");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("id_Article"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("libelle_Article"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("description_Article"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("nbre_page"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("priorite"));
+    model->setHeaderData(5,Qt::Horizontal,QObject::tr("format"));
+
+
+
+    return model;
+}
+
+QSqlQueryModel *Article:: tri_id()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("Select * from article order by id_Article ASC ");
     model->setHeaderData(0,Qt::Horizontal,QObject::tr("id_Article"));
     model->setHeaderData(1,Qt::Horizontal,QObject::tr("libelle_Article"));
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("description_Article"));

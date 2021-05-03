@@ -28,6 +28,7 @@ public:
     bool supprimer(int);
     QSqlQueryModel * rechercher(QString);
     QSqlQueryModel * tri_id();
+    QSqlQueryModel * tri_libelle();
 
 
 

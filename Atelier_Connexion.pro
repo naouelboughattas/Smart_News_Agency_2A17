@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql printsupport network
+QT       += core gui sql printsupport network multimedia
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -26,20 +26,39 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        account.cpp \
         article.cpp \
+        categorie.cpp \
         connection.cpp \
+        exportexcelobjet.cpp \
+        historique.cpp \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        qrcode.cpp \
+        smtp.cpp \
+        statistique.cpp
 
 HEADERS += \
+    account.h \
     article.h \
+    categorie.h \
+    exportexcelobjet.h \
+    historique.h \
         mainwindow.h \
-    connection.h
+    connection.h \
+    qrcode.h \
+    smtp.h \
+    statistique.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+        statistique.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    ressources.qrc
+
