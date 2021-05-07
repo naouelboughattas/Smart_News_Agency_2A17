@@ -1,0 +1,52 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img_mus/12.png</file>
+        <file>img_mus/add.png</file>
+        <file>img_mus/afficher.png</file>
+        <file>img_mus/backmusic0001.png</file>
+        <file>img_mus/backmusic0002.png</file>
+        <file>img_mus/cccc-01.png</file>
+        <file>img_mus/click.mp3</file>
+        <file>img_mus/delete.png</file>
+        <file>img_mus/done.png</file>
+        <file>img_mus/EXIT.png</file>
+        <file>img_mus/gesmiss.png</file>
+        <file>img_mus/gestion misssion-01.png</file>
+        <file>img_mus/icone.ico</file>
+        <file>img_mus/LOGIN.png</file>
+        <file>img_mus/microsoft-excel-2019--v1.png</file>
+        <file>img_mus/modifier.png</file>
+        <file>img_mus/next0001.png</file>
+        <file>img_mus/next0002.png</file>
+        <file>img_mus/nom.png</file>
+        <file>img_mus/pdf.png</file>
+        <file>img_mus/play.png</file>
+        <file>img_mus/play0001.png</file>
+        <file>img_mus/play0002.png</file>
+        <file>img_mus/prenom.png</file>
+        <file>img_mus/recherche.png</file>
+        <file>img_mus/return.png</file>
+        <file>img_mus/send.png</file>
+        <file>img_mus/SIGNUP.png</file>
+        <file>img_mus/stop0001.png</file>
+        <file>img_mus/stop0002.png</file>
+        <file>img_mus/TRIE.png</file>
+        <file>img_mus/xxx.png</file>
+        <file>img_mus/gestion_des_category.png</file>
+        <file>img_mus/lock@2x.png</file>
+        <file>img_mus/user@2x.png</file>
+        <file>img_mus/GESTION_article.png</file>
+        <file>img_mus/screenshot.png</file>
+        <file>img_mus/trierr.png</file>
+        <file>img_mus/recherche libelle.png</file>
+        <file>img_mus/recherche marque.png</file>
+        <file>img_mus/search id.png</file>
+        <file>img_mus/commande.png</file>
+        <file>img_mus/equipement.png</file>
+        <file>img_mus/gestion_pub.png</file>
+        <file>img_mus/journaux.png</file>
+        <file>img_mus/sponsors.png</file>
+        <file>img_mus/supplier.png</file>
+        <file>img_mus/makeshot.png</file>
+    </qresource>
+</RCC>
