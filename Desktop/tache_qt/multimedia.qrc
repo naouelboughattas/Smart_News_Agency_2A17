@@ -19,5 +19,6 @@
         <file>../300ppi/Asset 2.png</file>
         <file>../x-01.png</file>
         <file>../cccc-01.png</file>
+        <file>send.png</file>
     </qresource>
 </RCC>

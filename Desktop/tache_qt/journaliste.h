@@ -26,7 +26,7 @@ public:
     QSqlQueryModel * rechercher(QString);
     QSqlQueryModel * tri_nom();
     QSqlQueryModel * tri_prenom();
-    bool fetch(QString);
+    int  chercher (QString);
 private:
     int id ;
     QString nom,prenom,fonction,diplome;

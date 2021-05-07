@@ -3,7 +3,7 @@
 #include "qdebug.h"
 #include "qobject.h"
 #include "qmessagebox.h"
-
+#include "connection.h"
 gesjournaliste::gesjournaliste()
 {
 id=0;
@@ -146,13 +146,13 @@ QSqlQueryModel *gesjournaliste:: tri_prenom()
     return model;
 }
 
-bool gesjournaliste::fetch(QString diplome)
-{ QSqlQuery query;
-    query.prepare("Select *from journaliste where diplome='"+diplome+"'");
+int gesjournaliste::chercher(QString diplome){
+QSqlQuery query;
+    query.prepare("Select * from JOURNALISTE where diplome='"+diplome+"'");
      query.exec();
     int a=0;
     while(query.next())
     {a++;
-    }
-    return a;
-}
+    }return a; };
+
+

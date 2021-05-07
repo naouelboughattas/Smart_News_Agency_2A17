@@ -1,12 +1,23 @@
 #include "journaliste_mission.h"
 
 #include <QApplication>
+#include <QWidget>
+
 
 #include <QMessageBox>
 #include "connection.h"
 int main(int argc, char *argv[])
 {
+
     QApplication a(argc, argv);
+
+
+
+a.setWindowIcon(QIcon(":/icone.ico"));
+
+QWidget b;
+
+
     journaliste_mission w;
     connection c;
     bool test=c.createConnection();
@@ -23,6 +34,8 @@ int main(int argc, char *argv[])
                     QObject::tr("connection failed.\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);
     //else qDebug() <<"erreur de connection ";
+
+
 
 
     return a.exec();

@@ -52,7 +52,7 @@ model->setQuery("SELECT* from mission");
 model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_mission"));
 model->setHeaderData(1, Qt::Horizontal, QObject::tr("libelle"));
 model->setHeaderData(2, Qt::Horizontal, QObject::tr("description"));
-model->setHeaderData(2, Qt::Horizontal, QObject::tr("confidentialite"));
+model->setHeaderData(3, Qt::Horizontal, QObject::tr("confidentialite"));
 
 
     return model;
@@ -106,6 +106,8 @@ QSqlQueryModel * missions::rechercher(QString libelle)
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_mission"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("libelle "));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("description"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("confidentialite"));
+
     if(libelle.isEmpty() )
     {
         QMessageBox::critical(nullptr, QObject::tr("Rcherche"),
@@ -122,7 +124,7 @@ QSqlQueryModel *missions:: tri_id_mission()
     model->setHeaderData(0,Qt::Horizontal,QObject::tr("id_mission"));
     model->setHeaderData(1,Qt::Horizontal,QObject::tr("libelle"));
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("description"));
-    model->setHeaderData(2,Qt::Horizontal,QObject::tr("confidentialite"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("confidentialite"));
 
 
 
