@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>click.mp3</file>
+        <file>global-technology-background-with-text-space_1017-19388.jpg</file>
+        <file>graphical-modern-digital-world-news-background_1412-442.jpg</file>
+        <file>buttons_PNG167.png</file>
+        <file>sicherheit-t.jpg</file>
+        <file>unnamed.jpg</file>
+        <file>25552.jpg</file>
+    </qresource>
+</RCC>
